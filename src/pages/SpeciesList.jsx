@@ -27,11 +27,15 @@ export function SpeciesList() {
             <div className="card-container">
                 {species.map((specie) => (
                     <div className="card" key={specie._id}>
-                         <img src={specie.image} alt={specie.image} className="card-img"/>
+                        <img src={specie.image} alt={specie.image} className="card-img" />
                         <div className="card-content">
                             <h3>{specie.name}</h3>
-                            <Link to={`/species/${specie._id}`}>
-                            <Button variant="outline-secondary">Ver detalles</Button></Link>
+                            <div className="buttons-content">
+                                <Link to={`/species/${specie._id}`}>
+                                    <Button variant="outline-secondary">Ver detalles</Button>
+                                </Link>
+                                <Button variant="outline-secondary">Favorite</Button>
+                            </div>
                         </div>
                     </div>
                 ))}

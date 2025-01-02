@@ -19,13 +19,18 @@ export const FilmList = () => {
   return (
     <div className="film-list">
       <h1>Star Wars Filmography</h1>
-      <div className="card-container">
+      <div className="film-card-container">
         {films.map((film) => (
-          <div className="card" key={film.title}>
-            <div className="card-content">
+          <div className="film-card" key={film.title}>
+            <div className="film-card-content">
               <h3>{film.properties.title}</h3>
               <p>{film.properties.opening_crawl.slice(0, 100)}...</p> 
-              <Link to={`/films/${film.uid}`} className="card-link"><Button variant="outline-secondary">Ver detalles</Button></Link>
+              <div className="buttons-content">
+                <Link to={`/films/${film.uid}`} className="card-link">
+              <Button variant="outline-secondary">Ver detalles</Button>
+              </Link>
+              <Button variant="outline-secondary">Favorite</Button>
+              </div>
             </div>
           </div>
         ))}

@@ -1,5 +1,6 @@
 .organizations-list {
   padding: 20px;
+  margin: 0;
 }
 
 .card-container {
@@ -12,13 +13,15 @@
 }
 
 .card {
-  width: 250px;
+  width: 300px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   scroll-snap-align: start;
+  margin-bottom: 0;
+  height: 400px;
 }
 
 .card-img {
@@ -45,4 +48,9 @@
   text-decoration: none;
   color: #007bff;
   font-weight: bold;
+}
+.buttons-content {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }

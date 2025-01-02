@@ -24,7 +24,12 @@ export const OrganizationsList = () => {
                         <img src={organization.image} alt={organization.image} className="card-img" />
                         <div className="card-content">
                             <h3>{organization.name}</h3>
-                            <Link to={`/organizations/name/${organization.name}`}><Button variant="outline-secondary">Ver detalles</Button></Link>
+                            <div className="buttons-content">
+                                <Link to={`/organizations/name/${organization.name}`}>
+                                    <Button variant="outline-secondary">Ver detalles</Button>
+                                </Link>
+                                <Button variant="outline-secondary">Favorite</Button>
+                            </div>
                         </div>
                     </div>
                 ))}

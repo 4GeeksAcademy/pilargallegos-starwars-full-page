@@ -2,6 +2,8 @@ import { useEffect , useState} from "react";
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import '../styles/OrganizationDetails.css'
+
 export function OrganizationsDetails () {
     const {name} = useParams();
     const [OrganizationDetails , setOrganizationDetails] = useState (null);
@@ -23,9 +25,10 @@ export function OrganizationsDetails () {
     if (!OrganizationDetails) return <p>Cargando...</p>
     
         return (
-            <div>
+            <div className="organization-details">
                 <h1>{OrganizationDetails.name}</h1>
-                <p><strong>Detalles:</strong> {OrganizationDetails.description}</p>
+                <img src={OrganizationDetails.image} alt={OrganizationDetails.image} className="card-img" />
+                <p>{OrganizationDetails.description}</p>
             </div>
         );
 }
