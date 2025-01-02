@@ -3,6 +3,8 @@ import { FilmList } from "./FilmList";
 import { SpeciesList } from "./SpeciesList";
 import { OrganizationsList } from "./OrganizationsList";
 
+import '../styles/HomePage.css';
+
 const HomePage = () => {
   return (
     <div className="home">

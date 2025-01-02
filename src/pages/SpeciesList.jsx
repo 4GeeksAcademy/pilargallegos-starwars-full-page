@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 import '../styles/SpeciesList.css'
 
 export function SpeciesList() {
@@ -21,7 +23,7 @@ export function SpeciesList() {
 
     return (
         <div className="species-list">
-            <h2>Star Wars Species</h2>
+            <h1>Star Wars Species</h1>
             <div className="card-container">
                 {species.map((specie) => (
                     <div className="card" key={specie._id}>
@@ -29,7 +31,7 @@ export function SpeciesList() {
                         <div className="card-content">
                             <h3>{specie.name}</h3>
                             <Link to={`/species/${specie._id}`}>
-                                <button>Ver más</button></Link>
+                            <Button variant="outline-secondary">Ver detalles</Button></Link>
                         </div>
                     </div>
                 ))}
