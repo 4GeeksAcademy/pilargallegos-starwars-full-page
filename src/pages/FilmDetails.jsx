@@ -20,7 +20,6 @@ export function FilmDetails() {
     return (
         <div>
             <h1>{FilmDetails.title}</h1>
-            <p><strong>Opening Crawl</strong></p>
             <p>{FilmDetails.opening_crawl}</p>
         </div>
     );

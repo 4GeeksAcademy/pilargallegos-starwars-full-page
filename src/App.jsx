@@ -6,8 +6,9 @@ import { FilmList } from "./pages/FilmList";
 import { FilmDetails } from "./pages/FilmDetails";
 import { SpeciesList } from "./pages/SpeciesList";
 import { SpeciesDetails } from "./pages/SpeciesDetails";
-import { PlanetList } from "./pages/PlanetList";
 import HomePage from "./pages/HomePage";
+import { OrganizationsList } from "./pages/OrganizationsList";
+import { OrganizationsDetails } from "./pages/OrganizationsDetails";
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
         <Route path="/films" element={<FilmList />} />
         <Route path="/films/:filmUid" element={<FilmDetails />} />
         <Route path="/species" element={<SpeciesList />} />
-        <Route path="/species/:specieUid" element={<SpeciesDetails />} />
-        <Route path="/planets" element={<PlanetList />} />
-
+        <Route path="/species/:_id" element={<SpeciesDetails />} />
+        <Route path="/organizations" element={<OrganizationsList />} />
+        <Route path="/organizations/name/:name" element={<OrganizationsDetails />} />
       </Routes>
     </>
   );

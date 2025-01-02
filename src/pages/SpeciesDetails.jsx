@@ -9,24 +9,19 @@ export function SpeciesDetails () {
     useEffect (()=>{
         fetch(`https://starwars-databank-server.vercel.app/api/v1/species/${_id}`)
         .then(response=>response.json())
-        .then((data)=>setSpeciesDetails(data.description))
+        .then((data)=>setSpeciesDetails(data.description.split(" ")))
         .catch((error)=>console.error ('Error', error));
     },[_id]);
 
     if (!SpeciesDetails) return <p>Cargando...</p>
 
-    return(
+    return (
         <div>
-            <h1>{SpeciesDetails.name}</h1>
-            <p><strong>Details</strong></p>
-            <ul>
-                {Object.entries(SpeciesDetails).map(([key, value]) => (
-                    <li key={key}>
-                        <strong>{key.replace("_", " ")}:</strong>{" "}
-                        {Array.isArray(value) ? value.join(" , ") : value.toString()}
-                    </li>
-                ))}
-            </ul>
+            <h1>Detalles de la especie</h1>
+            <p><strong>Details:</strong></p>
+            <p>
+                {SpeciesDetails.join(" ")}
+            </p>
         </div>
-    )
+    );
 }

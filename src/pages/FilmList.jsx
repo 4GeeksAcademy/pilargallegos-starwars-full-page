@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import '../styles/FilmList.css';
 
 export const FilmList = () => {
   const [films, setFilms] = useState([]); 
-  
 
   useEffect(() => {
     fetch('https://www.swapi.tech/api/films/')
@@ -15,15 +15,19 @@ export const FilmList = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Star Wars Filmography</h1>
-      <ul>
+    <div className="film-list">
+      <h2>Star Wars Filmography</h2>
+      <div className="card-container">
         {films.map((film) => (
-          <li key={film.title}>
-            <Link to={`/films/${film.uid}`}>{film.properties.title}</Link>
-          </li>
+          <div className="card" key={film.title}>
+            <div className="card-content">
+              <h3>{film.properties.title}</h3>
+              <p>{film.properties.opening_crawl.slice(0, 100)}...</p> 
+              <Link to={`/films/${film.uid}`} className="card-link">Ver detalles</Link>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

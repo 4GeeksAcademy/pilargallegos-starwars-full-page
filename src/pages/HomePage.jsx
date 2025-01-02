@@ -1,7 +1,7 @@
 import React from "react";
 import { FilmList } from "./FilmList";
 import { SpeciesList } from "./SpeciesList";
-import { PlanetList } from "./PlanetList";
+import { OrganizationsList } from "./OrganizationsList";
 
 const HomePage = () => {
   return (
@@ -14,7 +14,7 @@ const HomePage = () => {
         <SpeciesList />
       </div>
       <div>
-        <PlanetList />
+        <OrganizationsList />
       </div>
     </div>
   );
