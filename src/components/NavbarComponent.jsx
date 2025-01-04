@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useFavorites } from '../pages/Favorites';
 
 const NavbarComponent = () => {
-    const {favorites} = useFavorites();
+    const {favorites , removeFavorite} = useFavorites();
     return (
         <Navbar bg="dark" variant="dark"> 
             <Container className="w-75 m-auto">
@@ -20,7 +20,8 @@ const NavbarComponent = () => {
                         ) : (
                             favorites.map((item, index) => (
                                 <Dropdown.Item key={index}>
-                                    {item.name}
+                                    <span>{item.name}</span>
+                                    <button onClick={()=> removeFavorite(item.id)} style={{cursor: 'pointer', color: 'grey' , background: 'none' , border: 'none'}}>x</button>
                                 </Dropdown.Item>
                             ))
                         )}
