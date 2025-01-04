@@ -9,10 +9,12 @@ import { SpeciesDetails } from "./pages/SpeciesDetails";
 import HomePage from "./pages/HomePage";
 import { OrganizationsList } from "./pages/OrganizationsList";
 import { OrganizationsDetails } from "./pages/OrganizationsDetails";
+import { FavoritesDetails } from "./pages/Favorites";
 
 function App() {
   return (
     <>
+    <FavoritesDetails>
       <NavbarComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -23,6 +25,7 @@ function App() {
         <Route path="/organizations" element={<OrganizationsList />} />
         <Route path="/organizations/name/:name" element={<OrganizationsDetails />} />
       </Routes>
+      </FavoritesDetails>
     </>
   );
 }
