@@ -23,7 +23,7 @@ function App() {
         <Route path="/species" element={<SpeciesList />} />
         <Route path="/species/:_id" element={<SpeciesDetails />} />
         <Route path="/organizations" element={<OrganizationsList />} />
-        <Route path="/organizations/name/:name" element={<OrganizationsDetails />} />
+        <Route path="/organizations/:_id" element={<OrganizationsDetails />} />
       </Routes>
       </FavoritesDetails>
     </>

@@ -24,17 +24,17 @@ export const OrganizationsList = () => {
             <h1>Star Wars Organizations</h1>
             <div className="card-container">
                 {organizations.map((organization) => (
-                    <div className="card" key={organization.name}>
+                    <div className="card" key={organization._id}>
                         <img src={organization.image} alt={organization.image} className="card-img" />
                         <div className="card-content">
                             <h3>{organization.name}</h3>
                             <div className="buttons-content">
-                                <Link to={`/organizations/name/${organization.name}`}>
+                                <Link to={`/organizations/${organization._id}`}>
                                     <Button variant="outline-secondary">Ver detalles</Button>
                                 </Link>
                                 <Button variant="outline-secondary" onClick={() => isFavorite(organization._id)
                                     ? removeFavorite(organization._id)
-                                    : addFavorite({ id: organization._id, name: organization.name })
+                                    : addFavorite({ id: organization._id, name: organization.name, type: 'organizations', })
                                 }
                                 >
                                     {isFavorite(organization._id) ? "Quitar de Favoritos" : "Favorite"}</Button>

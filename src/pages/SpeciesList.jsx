@@ -41,7 +41,7 @@ export function SpeciesList() {
                                 </Link>
                                 <Button variant="outline-secondary" onClick={() => isFavorite(specie._id)
                                     ? removeFavorite(specie._id)
-                                    : addFavorite({ id: specie._id, name: specie.name })
+                                    : addFavorite({ id: specie._id, name: specie.name, type: 'species', })
                                 }
                                 >
                                     {isFavorite(specie._id) ? "Quitar de Favoritos" : "Favorite"}</Button>                            </div>

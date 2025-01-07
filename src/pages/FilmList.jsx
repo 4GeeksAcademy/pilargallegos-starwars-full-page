@@ -39,7 +39,7 @@ export const FilmList = () => {
                   onClick={() =>
                     isFavorite(film.uid)
                       ? removeFavorite(film.uid)
-                      : addFavorite({ id: film.uid, name: film.properties.title })
+                      : addFavorite({ id: film.uid, name: film.properties.title, type: 'films', })
                   }
                 >
                   {isFavorite(film.uid) ? "Quitar de Favoritos" : "Favorite"}

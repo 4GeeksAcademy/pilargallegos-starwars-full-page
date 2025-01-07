@@ -5,22 +5,19 @@ import { useParams } from "react-router-dom";
 import '../styles/OrganizationDetails.css'
 
 export function OrganizationsDetails () {
-    const {name} = useParams();
+    const { _id } = useParams(); 
     const [OrganizationDetails , setOrganizationDetails] = useState (null);
 
     useEffect(() => {
-        fetch(`https://starwars-databank-server.vercel.app/api/v1/organizations/name/${name}`)
+        fetch(`https://starwars-databank-server.vercel.app/api/v1/organizations/${_id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data); 
-                if (Array.isArray(data) && data.length > 0) {
-                    setOrganizationDetails(data[0]); 
-                } else {
-                    console.error("La respuesta no contiene un array válido");
-                }
+                setOrganizationDetails(data); 
+                
             })
             .catch(error => console.error("Error:", error));
-    }, [name]);
+    }, [_id]);
 
     if (!OrganizationDetails) return <p>Cargando...</p>
     
