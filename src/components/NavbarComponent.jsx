@@ -31,9 +31,9 @@ const NavbarComponent = () => {
                 <Navbar.Toggle />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/films">Films</Nav.Link>
+                        <Nav.Link as={Link} to="/planets">Planets</Nav.Link>
                         <Nav.Link as={Link} to="/species">Species</Nav.Link>
-                        <Nav.Link as={Link} to="/organizations">Organizations</Nav.Link>
+                        <Nav.Link as={Link} to="/characters">Characters</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

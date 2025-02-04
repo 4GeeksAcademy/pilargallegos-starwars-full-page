@@ -21,7 +21,6 @@
   flex-shrink: 0;
   scroll-snap-align: start;
   margin-bottom: 0;
-  height: 400px;
 }
 
 .card-img {

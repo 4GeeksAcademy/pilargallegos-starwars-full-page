@@ -1,7 +1,7 @@
 import React from "react";
-import { FilmList } from "./FilmList";
+import { PlanetsList } from "./PlanetsList";
 import { SpeciesList } from "./SpeciesList";
-import { OrganizationsList } from "./OrganizationsList";
+import { PeopleList } from "./PeopleList";
 
 import '../styles/HomePage.css';
 
@@ -10,13 +10,13 @@ const HomePage = () => {
     <div className="home">
       <h1>Star Wars Universe</h1>
       <div>
-        <FilmList />
+        <PlanetsList />
       </div>
       <div>
         <SpeciesList />
       </div>
       <div>
-        <OrganizationsList />
+        <PeopleList />
       </div>
     </div>
   );

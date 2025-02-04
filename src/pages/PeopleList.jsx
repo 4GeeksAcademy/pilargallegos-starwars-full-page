@@ -1,0 +1,48 @@
+import { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useFavorites } from "./Favorites"
+
+import '../styles/PeopleList.css';
+
+export const PeopleList = () => {
+    const [people, setPeople] = useState([]);
+    const { favorites, addFavorite, removeFavorite } = useFavorites();
+
+    useEffect(() => {
+        fetch('https://starwars-databank-server.vercel.app/api/v1/characters')
+            .then(response => response.json())
+            .then((data) => setPeople(data.data))
+            .catch((error) => console.error('Error', error));
+    }, []);
+
+    const isFavorite = (id) => favorites.some((fav) => fav.id === id);
+
+    return (
+        <div className="people-list">
+            <h1>Star Wars People</h1>
+            <div className="card-container">
+                {people.map((person) => (
+                    <div className="card" key={person._id}>
+                        <img src={person.image} alt={person.image} className="card-img" />
+                        <div className="card-content">
+                            <h3>{person.name}</h3>
+                            <div className="buttons-content">
+                                <Link to={`/characters/${person._id}`}>
+                                    <Button variant="outline-secondary">Ver detalles</Button>
+                                </Link>
+                                <Button variant="outline-secondary" onClick={() => isFavorite(person._id)
+                                    ? removeFavorite(person._id)
+                                    : addFavorite({ id: person._id, name: person.name, type: 'person', })
+                                }
+                                >
+                                    {isFavorite(person._id) ? "Quitar de Favoritos" : "Favorite"}</Button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
