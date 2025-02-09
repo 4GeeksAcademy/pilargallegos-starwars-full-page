@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useFavorites } from "./Favorites";
+import { useFavorites } from "../pages/Favorites";
 
 import '../styles/PlanetList.css';
 
@@ -11,11 +11,11 @@ export const PlanetsList = () => {
     const { favorites, addFavorite, removeFavorite } = useFavorites();
 
     useEffect(() => {
-        fetch('https://www.swapi.tech/api/planets/')
+        fetch('https://orange-goggles-5gxvgvx4xw7jh7xpr-3000.app.github.dev/planets/')
             .then(response => response.json())
             .then((data) => {
               console.log(data); // Verifica la estructura de los datos
-              setPlanets(data.results); // Aquí guardamos los planetas
+              setPlanets(data.content); // Aquí guardamos los planetas
           })            
           .catch((error) => console.error('Error', error));
     }, []);
@@ -29,7 +29,7 @@ export const PlanetsList = () => {
                 {planets && planets.map((planet) => (
                     <div className="card" key={planet.uid}>
                         <div className="card-content">
-                            <h3>{planet.name}</h3> {/* Ahora accedemos directamente a 'name' */}
+                            <h3>{planet.name}</h3> 
                             <div className="buttons-content">
                                 <Link to={`/planets/${planet.uid}`}>
                                     <Button variant="outline-secondary">Ver detalles</Button>

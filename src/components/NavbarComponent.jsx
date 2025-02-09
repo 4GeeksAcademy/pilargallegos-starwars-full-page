@@ -22,7 +22,7 @@ const NavbarComponent = () => {
                             favorites.map((item, index) => (
                                 <Dropdown.Item key={index} onClick={()=> navigate(`/${item.type}/${item.id}`)}>
                                     {item.name}
-                                    <button onClick={()=> removeFavorite(item.id)} style={{cursor: 'pointer', color: 'grey' , background: 'none' , border: 'none'}}>x</button>
+                                    <button onClick={(e) => {e.stopPropagation(); removeFavorite(item.id);}} style={{cursor: 'pointer', color: 'grey' , background: 'none' , border: 'none'}}>x</button>
                                 </Dropdown.Item>
                             ))
                         )}
@@ -33,7 +33,7 @@ const NavbarComponent = () => {
                     <Nav className="ms-auto">
                         <Nav.Link as={Link} to="/planets">Planets</Nav.Link>
                         <Nav.Link as={Link} to="/species">Species</Nav.Link>
-                        <Nav.Link as={Link} to="/characters">Characters</Nav.Link>
+                        <Nav.Link as={Link} to="/people">Characters</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

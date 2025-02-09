@@ -1,9 +1,9 @@
-import { PlanetsList } from "../pages/PlanetsList";
+import { PlanetsList } from "../lists/PlanetsList";
 import { PlanetDetails } from "../pages/PlanetDetails";
-import { SpeciesList } from "../pages/SpeciesList";
+import { SpeciesList } from "../lists/SpeciesList";
 import { SpeciesDetails } from "../pages/SpeciesDetails";
 import HomePage from "../pages/HomePage";
-import { PeopleList } from "../pages/PeopleList";
+import { PeopleList } from "../lists/PeopleList";
 import { PeopleDetails } from "../pages/PeopleDetails";
 
 const routes = [
@@ -11,9 +11,9 @@ const routes = [
     {path: "/planets", element: <PlanetsList />},
     {path: "/planets/:planetUid", element: <PlanetDetails />},
     {path: "/species", element: <SpeciesList />},
-    {path: "/species/:_id", element: <SpeciesDetails />},
-    {path: "/characters", element: <PeopleList />},
-    {path: "/characters/:_id", element: <PeopleDetails />}
+    {path: "/species/:uid", element: <SpeciesDetails />},
+    {path: "/people", element: <PeopleList />},
+    {path: "/people/:uid", element: <PeopleDetails />}
 ];
 
 export default routes;

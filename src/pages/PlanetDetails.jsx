@@ -8,11 +8,11 @@ export function PlanetDetails() {
     const [planetDetails, setPlanetDetails] = useState(null); 
 
     useEffect(() => {
-        fetch(`https://www.swapi.tech/api/planets/${planetUid}`)
+        fetch(`https://orange-goggles-5gxvgvx4xw7jh7xpr-3000.app.github.dev/planets/${planetUid}`)
             .then(response => response.json())
             .then((data) => {
                 console.log(data);
-                setPlanetDetails(data.result.properties); 
+                setPlanetDetails(data.content); 
             })
             .catch((error) => console.error('Error', error));
     }, [planetUid]);
@@ -22,10 +22,7 @@ export function PlanetDetails() {
     return (
         <div className="planet-details">
             <h1>{planetDetails.name}</h1> 
-            <p>{planetDetails.climate}</p>
             <p>{planetDetails.gravity}</p>
-            <p>{planetDetails.population}</p>
-            <p>{planetDetails.diameter}</p>
         </div>
     );
 }

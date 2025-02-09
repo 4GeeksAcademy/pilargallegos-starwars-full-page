@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useFavorites } from "./Favorites"
+import { useFavorites } from "../pages/Favorites"
 
 import '../styles/PeopleList.css';
 
@@ -11,9 +11,9 @@ export const PeopleList = () => {
     const { favorites, addFavorite, removeFavorite } = useFavorites();
 
     useEffect(() => {
-        fetch('https://starwars-databank-server.vercel.app/api/v1/characters')
+        fetch('https://orange-goggles-5gxvgvx4xw7jh7xpr-3000.app.github.dev/people/')
             .then(response => response.json())
-            .then((data) => setPeople(data.data))
+            .then((data) => setPeople(data.content))
             .catch((error) => console.error('Error', error));
     }, []);
 
@@ -24,20 +24,20 @@ export const PeopleList = () => {
             <h1>Star Wars People</h1>
             <div className="card-container">
                 {people.map((person) => (
-                    <div className="card" key={person._id}>
+                    <div className="card" key={person.uid}>
                         <img src={person.image} alt={person.image} className="card-img" />
                         <div className="card-content">
                             <h3>{person.name}</h3>
                             <div className="buttons-content">
-                                <Link to={`/characters/${person._id}`}>
-                                    <Button variant="outline-secondary">Ver detalles</Button>
-                                </Link>
-                                <Button variant="outline-secondary" onClick={() => isFavorite(person._id)
-                                    ? removeFavorite(person._id)
-                                    : addFavorite({ id: person._id, name: person.name, type: 'person', })
+                            <Link to={`/people/${person.uid}`}>
+                                <Button variant="outline-secondary">Ver detalles</Button>
+                            </Link>
+                                <Button variant="outline-secondary" onClick={() => isFavorite(person.uid)
+                                    ? removeFavorite(person.uid)
+                                    : addFavorite({ id: person.uid, name: person.name, type: 'person', })
                                 }
                                 >
-                                    {isFavorite(person._id) ? "Quitar de Favoritos" : "Favorite"}</Button>
+                                    {isFavorite(person.uid) ? "Quitar de Favoritos" : "Favorite"}</Button>
                             </div>
                         </div>
                     </div>

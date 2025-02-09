@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import NavbarComponent from "./components/NavbarComponent";
 
 import { FavoritesDetails } from "./pages/Favorites";
-import routes from "./components/RouteConfig";
+import routes from "./routes/RouteConfig";
 
 function App() {
   return (
