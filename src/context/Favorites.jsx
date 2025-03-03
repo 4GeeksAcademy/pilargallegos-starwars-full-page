@@ -1,6 +1,11 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 
-const FavoritesContext = createContext();
+export const FavoritesContext = createContext({
+    favorites: [],
+    setFavorite: () => {},
+    removeFavorite: (id) => {},
+    addFavorites: (id, name, type) => {},
+  });
 
 export function FavoritesDetails({ children }) {
     const [favorites, setFavorites] = useState([]);
@@ -39,6 +44,19 @@ export function FavoritesDetails({ children }) {
                 type: element.type,
                 name: element.name,
             }),
+        })
+        .then((response)=>{
+            if(!response.ok) {
+                console.error(`Error: ${response.status} ${response.statusText}`);
+            } else { 
+                return response.json();
+            }
+        })
+        .then((data)=> {
+            if (data) console.log("Favorito añadido:", data)
+        })
+        .catch((error)=>{
+            console.error("Error al añadir favorito:",error)
         });
     };
 

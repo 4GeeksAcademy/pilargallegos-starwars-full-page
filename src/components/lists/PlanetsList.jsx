@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useFavorites } from "../pages/Favorites";
+import { useFavorites } from "../../context/Favorites";
 
-import '../styles/PlanetList.css';
+import '../../styles/PlanetList.css';
 
 export const PlanetsList = () => {
     const [planets, setPlanets] = useState([]);
@@ -14,8 +14,8 @@ export const PlanetsList = () => {
         fetch('https://orange-goggles-5gxvgvx4xw7jh7xpr-3000.app.github.dev/planets/')
             .then(response => response.json())
             .then((data) => {
-              console.log(data); // Verifica la estructura de los datos
-              setPlanets(data.content); // Aquí guardamos los planetas
+              console.log(data); 
+              setPlanets(data.content); 
           })            
           .catch((error) => console.error('Error', error));
     }, []);

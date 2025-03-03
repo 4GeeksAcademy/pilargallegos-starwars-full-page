@@ -1,7 +1,7 @@
 import React from "react";
-import { PlanetsList } from "../lists/PlanetsList";
-import { SpeciesList } from "../lists/SpeciesList";
-import { PeopleList } from "../lists/PeopleList";
+import { PlanetsList } from "../components/lists/PlanetsList";
+import { SpeciesList } from "../components/lists/SpeciesList";
+import { PeopleList } from "../components/lists/PeopleList";
 
 import '../styles/HomePage.css';
 

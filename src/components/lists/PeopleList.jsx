@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useFavorites } from "../pages/Favorites"
+import { useFavorites } from "../../context/Favorites"
 
-import '../styles/PeopleList.css';
+import '../../styles/PeopleList.css';
 
 export const PeopleList = () => {
     const [people, setPeople] = useState([]);

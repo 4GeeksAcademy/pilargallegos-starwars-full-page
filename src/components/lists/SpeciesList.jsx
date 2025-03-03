@@ -2,9 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useFavorites } from "../pages/Favorites";
+import { useFavorites } from "../../context/Favorites";
 
-import '../styles/SpeciesList.css'
+import '../../styles/SpeciesList.css'
 
 export function SpeciesList() {
     const [species, setSpecies] = useState([]);
